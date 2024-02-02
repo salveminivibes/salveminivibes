@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Responsive</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown a {
+            float: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        @media screen and (max-width: 384px) {
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 384px) {
+            .navbar.responsive {
+                position: relative;
+            }
+            .navbar.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
+            .navbar.responsive .dropdown {
+                position: relative;
+            }
+            .navbar.responsive .dropdown-content {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar" id="myNavbar">
+        <a href="#home">Salvemini Vibes</a>
+        <a href="#news">Palinsesto</a>
+        <a href="#contact">Dove Ascoltarci</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Altro</a>
+            <div class="dropdown-content">
+                <a href="#link1">I nostri Speaker</a>
+                <a href="#link2">Diretta</a>
+                <a href="#link3">La nostra scuola</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <div>&#9776;</div>
+        </a>
+    </div>
+
+    <div style="padding: 16px">
+        <p>Contenuto della pagina...</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myNavbar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+    </script>
+
+</body>
+</html>
